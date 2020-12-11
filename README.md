@@ -2,9 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
 
-## Development server
+## Backend Code Execution
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run the code for backend on port 8081.
+
+## Development server - for Front End 
+
+Run `npm install` to install the dependencies in you local node_modules folder. Run `npm install @angular/material` to install material library. Run `npm install @angular/cdk` to install component development kit. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
