@@ -1,0 +1,66 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <span>&nbsp;Welcome</span>
+  <div class="spacer"></div>
+</div>
+
+<div class="content" role="main">
+  <div class="container">
+    <div class="col-md-12">
+      <h4 style="display: inline;">List Of Enrolle</h4>
+      <button class="btn" style="float: right !important;margin: 0;" (click)="fetchEnrolleList()">Refresh</button>
+    </div>
+    <br />
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+        <td mat-cell *matCellDef="let element;let i=index;">
+          <span [ngClass]="element.active? 'selectable' : 'unselectable'" *ngIf="editrowId !== i">{{element.id}}</span>
+          <span *ngIf="editrowId === i">{{element.id}}</span> </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let element;let i=index;">
+          <span [ngClass]="element.active? 'selectable' : 'unselectable'"
+            *ngIf="editrowId !== i">{{element.name}}</span>
+          <span *ngIf="editrowId === i"><input type="text" name="ename" [(ngModel)]="element.name" /></span> </td>
+      </ng-container>
+
+      <!-- activation status Column -->
+      <ng-container matColumnDef="active">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Activation status </th>
+        <td mat-cell *matCellDef="let element;let i=index;">
+          <span [ngClass]="element.active? 'selectable' : 'unselectable'" *ngIf="editrowId !== i">
+            {{element.active}}</span>
+          <span *ngIf="editrowId === i"> <select name="active" [(ngModel)]="element.active">
+              <option [ngValue]="true">True</option>
+              <option [ngValue]="false">False</option>
+            </select></span> </td>
+      </ng-container>
+
+      <!-- Date of birth Column -->
+      <ng-container matColumnDef="dateOfBirth">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Of Birth </th>
+        <td mat-cell *matCellDef="let element;let i=index;">
+          <span [ngClass]="element.active? 'selectable' : 'unselectable'"
+            *ngIf="editrowId !== i">{{element.dateOfBirth}}</span>
+          <span *ngIf="editrowId === i">{{element.dateOfBirth}}</span></td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let element;let i=index;">
+          <button *ngIf="editrowId !== i" class="btn" (click)="upadeRowIndexRecord(i)">Edit</button>
+          <button *ngIf="editrowId === i" class="btn" (click)="saveRecord(i,element)">Save</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[10,20,50,100]"></mat-paginator>
+  </div>
+</div>
