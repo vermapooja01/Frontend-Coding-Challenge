@@ -8,7 +8,7 @@ Run the code for backend on port 8081.
 
 ## Development server - for Front End 
 
-Run `npm install` to install the dependencies in you local node_modules folder. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm install` to install the dependencies in your local node_modules folder. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
